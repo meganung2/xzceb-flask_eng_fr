@@ -31,11 +31,13 @@ def english_to_french(english_text):
     french_text = language_translator.translate(
     english_text,
     model_id='en-fr').get_result()
-    return french_text
+    translation_dict_f = french_text['translations'][0]
+    return translation_dict_f['translation']
 
 def french_to_english(french_text):
     ''' to translate french to english'''
     english_text = language_translator.translate(
     french_text,
     model_id='fr-en').get_result()
-    return english_text
+    translation_dict_e = english_text['translations'][0]
+    return translation_dict_e['translation']
